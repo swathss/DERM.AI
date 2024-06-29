@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DERM.AI</title>
+    <style>
+        body{
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgb(59, 57, 110) 0%, rgb(109, 40, 37) 35%, rgb(22, 116, 134) 100%);
+        }
+
+        button{
+            margin: 10px;
+        }
+    </style>
+</head>
+<div>
+    <body>
+        <div class="row">
+
+        </div>
+        <div class="col">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1 style="font-size: 80px; font-family: poppins; color: aliceblue;">DERM.AI</h1>
+            <hr>
+        </div>
+        <div class="col" style="justify-content: center; align-items: center; display: flex;">
+            <a href="{{url_for('main_page')}}"><button class="button btn btn-danger btn-lg" id="patient">Start</button></a><br>
+        </div>
+    </body>
+</div>
+
+</html>

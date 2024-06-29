@@ -1,0 +1,87 @@
+<!doctype html>
+<title>Python Flask File Upload Example</title>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<style>
+	body{
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		background: rgb(2,0,36);
+		padding-top: 100px;
+		background: linear-gradient(90deg, rgb(59, 57, 110) 0%, rgb(109, 40, 37) 35%, rgb(22, 116, 134) 100%);
+		color: white; 
+	}
+	.inp
+	{
+		background: black;
+		color: white;
+	}
+
+	button{
+		margin: 10px;
+	}
+</style>
+<body>
+	<div class="row">
+		<div class="col">
+			<h2>Select a file to upload</h2>
+		</div>
+		<div class="col">
+			<p>
+				{% with messages = get_flashed_messages() %}
+				  {% if messages %}
+					<ul>
+					{% for message in messages %}
+					  <li>{{ message }}</li>
+					{% endfor %}
+					</ul>
+				  {% endif %}
+				{% endwith %}
+			</p>
+			{% if filename %}
+		</div>
+	
+			<div class="col">
+				<img src="{{ url_for('display_image', filename=filename) }}" width="500" height="600">
+				{% with results = get_flashed_messages(category_filter=["results"]) %}
+				{% if results %}
+				<div class="result">
+				  <a class="close" href="#">×</a>
+				  <ul>
+					{%- for result in results %}
+					<li>{{ result }}</li>
+					{% endfor -%}
+				  </ul>
+				</div>
+				{% endif %}
+				{% endwith %}
+			</div>
+		{% endif %}
+		<div class="col py-5">
+			<form method="post" action="/" enctype="multipart/form-data">
+				<dl>
+					<p>
+						<input name="file" class="inp form-control form-control-lg" type="file" id="file" autocomplete="off" required>
+					</p>
+				</dl>
+				<p>
+					<input class="btn-lg btn-danger" type="submit" value="Submit">
+				</p>
+				<p>
+					<label for="lang">Choose a Langugage:</label>
+					<select name="lang" id="lang" style="color: black;">
+					  <option value="English">English</option>
+					  <option value="Hindi">Hindi</option>
+					  <option value="Tamil">Tamil</option>
+					</select> 
+				</p>
+			</form>
+		</div>
+
+	</div>
+		
+</body>
+</html>
